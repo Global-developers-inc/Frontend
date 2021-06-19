@@ -69,7 +69,7 @@ function Navbar() {
       <ul>
         {active === "navbar-active"
           ? content.map((el) => (
-              <li>
+              <li key={el.href}>
                 <Link to={el.href}>
                   {el.icon}
                   {el.title}
@@ -77,7 +77,7 @@ function Navbar() {
               </li>
             ))
           : content.map((el) => (
-              <li>
+              <li key={el.href}>
                 <Link to={el.href}>{el.icon}</Link>
               </li>
             ))}

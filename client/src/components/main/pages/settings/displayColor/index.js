@@ -29,41 +29,14 @@ function DisplayColor() {
     if (e.target.name === "secondColor") {
       dispatch(changeColorSecond("#85a9d7"));
     }
-
-
   };
 
-
-  // const [test, setTest] = React.useState(null);
-  // const pageRandom = Math.floor(Math.random() * 10);
-  // React.useEffect(() => {
-  //   fetch(`https://jsonplaceholder.typicode.com/comments?postId=${pageRandom}`)
-  //     .then((response) => response.json())
-  //     .then((json) => setTest(json));
-  // }, []);
-  // console.log(test);
-
-
-	
-// 	async function handleSubmit(event) {
-//     event.preventDefault();
-//     const res = await fetch('/send_message', {
-//       method: "POST",
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         name,
-//         email,
-//         message
-//       })
-//     })
-//     if (res.status === 200) {
-		
-//     }
-//     else if (res.status === 406) {
-//     }
-//   }
+  React.useEffect(() => {
+    fetch("http://localhost:5000/repo")
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.log("Authorization failed : " + error.message));
+  }, []);
 
   return (
     <div className={cx("container-diplay-color")}>
