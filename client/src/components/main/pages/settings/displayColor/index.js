@@ -25,37 +25,65 @@ function DisplayColor() {
   const dispatch = useDispatch();
 
   const handleChangeColor = (e) => {
-    if (e.target.name === "mainColor") {
-      dispatch(changeColorMain("rgb(46, 46, 46)"));
+    if (e.target.name === "BlackMATE") {
+      dispatch(
+        changeColorMain({ color: "rgb(46, 46, 46)", nameColor: "BlackMATE" })
+      );
+      setLoadColor(null);
     }
-    if (e.target.name === "secondColor") {
-      dispatch(changeColorSecond("#85a9d7"));
+    if (e.target.name === "TraditionalOk") {
+      dispatch(
+        changeColorSecond({ color: "#85a9d7", nameColor: "TraditionalOk" })
+      );
+      setLoadColor(null);
     }
-    if (e.target.name === "thirdColor") {
-      dispatch(changeColorThird("#404f49"));
+    if (e.target.name === "Green-Submarine") {
+      dispatch(
+        changeColorThird({ color: "#404f49", nameColor: "Green-Submarine" })
+      );
+      setLoadColor(null);
     }
   };
+  const [loadColor, setLoadColor] = React.useState(null);
 
   React.useEffect(() => {
     fetch("http://localhost:5000/repo")
       .then((response) => response.json())
-      .then((json) => console.log(json))
+      .then((json) => setLoadColor(json))
       .catch((error) => console.log("Authorization failed : " + error.message));
   }, []);
 
-  const storeColor = useSelector((store) => store.actualColor);
-
+  const storeColor = useSelector((store) => store.actualColor.color);
+  const actualSendColor = useSelector((store) => store.actualColor);
+ 
   const [color, setColor] = React.useState(storeColor);
-
+  console.log(color);
   React.useEffect(() => {
     setColor(storeColor);
   }, [storeColor]);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const res = await fetch("http://localhost:5000/theme", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        actualSendColor,
+      }),
+    });
+    console.log(res);
+  }
+
   return (
     <div className={cx("container-diplay-color")}>
       <Button
         className={cx("button-back")}
         icon={
-          <IoArrowBackCircleSharp style={{ fill: color, marginRight: "5px" }} />
+          <IoArrowBackCircleSharp
+            style={{ fill: loadColor ? loadColor : color, marginRight: "5px" }}
+          />
         }
         title="Назад"
         onClick={handleClick}
@@ -63,15 +91,23 @@ function DisplayColor() {
       <h1>Display Color</h1>
       <div className={cx("display-colors-list")}>
         <div className={cx("display")} onClick={handleChangeColor}>
-          <img src={img} alt="img" name={"mainColor"} />
+          <img src={img} alt="img" name={"BlackMATE"} />
         </div>
         <div className={cx("display")} onClick={handleChangeColor}>
-          <img src={img2} alt="" name={"secondColor"} />
+          <img src={img2} alt="" name={"TraditionalOk"} />
         </div>
         <div className={cx("display")} onClick={handleChangeColor}>
-          <img src={img3} alt="" name={"thirdColor"} />
+          <img src={img3} alt="" name={"Green-Submarine"} />
         </div>
       </div>
+      <button
+        type="submit"
+        className={cx("btn")}
+        style={{ backgroundColor: loadColor ? loadColor : color }}
+        onClick={handleSubmit}
+      >
+        Applay
+      </button>
     </div>
   );
 }

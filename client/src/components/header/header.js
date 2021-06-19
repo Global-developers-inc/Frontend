@@ -10,7 +10,7 @@ import FormSearch from "./formSearch/formSearch";
 const cx = classNames.bind(style);
 
 function Header() {
-  const storeColor = useSelector((store) => store.actualColor);
+  const storeColor = useSelector((store) => store.actualColor.color);
 
   const [color, setColor] = React.useState(storeColor);
 

@@ -62,7 +62,7 @@ const listOfSettings = [
   },
 ];
 function Settings() {
-  const storeColor = useSelector((store) => store.actualColor);
+  const storeColor = useSelector((store) => store.actualColor.color);
 
   const [color, setColor] = React.useState(storeColor);
 

@@ -6,7 +6,7 @@ export const colorReducer = (state = [], action) => {
       return state;
   }
 };
-export const colorActualReducer = (state = "rgb(46, 46, 46)", action) => {
+export const colorActualReducer = (state = {color:"rgb(46, 46, 46)",nameColor:'BlackMATE'}, action) => {
   switch (action.type) {
     case TYPES.COLOR_MAIN:
       return action.payload;

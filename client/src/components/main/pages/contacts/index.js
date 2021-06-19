@@ -6,7 +6,7 @@ import style from "./contacts.module.css";
 import { useSelector } from "react-redux";
 const cx = classNames.bind(style);
 function Contacts() {
-  const storeColor = useSelector((store) => store.actualColor);
+  const storeColor = useSelector((store) => store.actualColor.color);
 
   const [color, setColor] = React.useState(storeColor);
 
