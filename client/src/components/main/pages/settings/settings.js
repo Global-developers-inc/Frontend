@@ -7,11 +7,12 @@ import {
 } from "react-icons/md";
 import { BsFillDisplayFill } from "react-icons/bs";
 import { ImPrinter } from "react-icons/im";
-import { GrLanguage } from "react-icons/gr";
+import { FaLanguage } from "react-icons/fa";
 import { GiSoundOn } from "react-icons/gi";
 
 import style from "./settings.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const cx = classNames.bind(style);
 const listOfSettings = [
   {
@@ -27,7 +28,7 @@ const listOfSettings = [
   {
     setting: "Language",
     path: "/language",
-    icon: <GrLanguage />,
+    icon: <FaLanguage />,
   },
   {
     setting: "Sound",
@@ -61,22 +62,28 @@ const listOfSettings = [
   },
 ];
 function Settings() {
+  const storeColor = useSelector((store) => store.actualColor);
 
+  const [color, setColor] = React.useState(storeColor);
+
+  React.useEffect(() => {
+    setColor(storeColor);
+  }, [storeColor]);
 
   return (
-    
-      <div className={cx("settings")}>
-        {listOfSettings.map((el) => (
-          <Link to={el.path}>
-            <div className={cx("btn")}>
-              <h5>
-                <h2>{el.icon}</h2>
-                {el.setting}
-              </h5>
-            </div>
-          </Link>
-        ))}
-      </div>
-      )}
+    <div className={cx("settings")}>
+      {listOfSettings.map((el) => (
+        <Link to={el.path}>
+          <div className={cx("btn")} style={{ backgroundColor: color }}>
+            <h6>
+              <h2>{el.icon}</h2>
+              {el.setting}
+            </h6>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 export default Settings;

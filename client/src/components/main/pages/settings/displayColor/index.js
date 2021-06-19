@@ -5,12 +5,14 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import style from "./displayColor.module.css";
 import img from "./first_color.png";
 import img2 from "./second_color.png";
+import img3 from "./third_color.png";
 import Button from "../../../../common/button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   changeColorMain,
   changeColorSecond,
+  changeColorThird,
 } from "../../../../../redux/actions/action";
 const cx = classNames.bind(style);
 
@@ -29,6 +31,9 @@ function DisplayColor() {
     if (e.target.name === "secondColor") {
       dispatch(changeColorSecond("#85a9d7"));
     }
+    if (e.target.name === "thirdColor") {
+      dispatch(changeColorThird("#404f49"));
+    }
   };
 
   React.useEffect(() => {
@@ -38,11 +43,20 @@ function DisplayColor() {
       .catch((error) => console.log("Authorization failed : " + error.message));
   }, []);
 
+  const storeColor = useSelector((store) => store.actualColor);
+
+  const [color, setColor] = React.useState(storeColor);
+
+  React.useEffect(() => {
+    setColor(storeColor);
+  }, [storeColor]);
   return (
     <div className={cx("container-diplay-color")}>
       <Button
         className={cx("button-back")}
-        icon={<IoArrowBackCircleSharp />}
+        icon={
+          <IoArrowBackCircleSharp style={{ fill: color, marginRight: "5px" }} />
+        }
         title="Назад"
         onClick={handleClick}
       />
@@ -53,6 +67,9 @@ function DisplayColor() {
         </div>
         <div className={cx("display")} onClick={handleChangeColor}>
           <img src={img2} alt="" name={"secondColor"} />
+        </div>
+        <div className={cx("display")} onClick={handleChangeColor}>
+          <img src={img3} alt="" name={"thirdColor"} />
         </div>
       </div>
     </div>

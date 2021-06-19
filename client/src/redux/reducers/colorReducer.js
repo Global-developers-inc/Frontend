@@ -12,6 +12,8 @@ export const colorActualReducer = (state = "rgb(46, 46, 46)", action) => {
       return action.payload;
     case TYPES.COLOR_SECOND:
       return action.payload;
+    case TYPES.COLOR_THIRD:
+      return action.payload;
     default:
       return state;
   }

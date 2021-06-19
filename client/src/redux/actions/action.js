@@ -13,3 +13,10 @@ export const changeColorSecond = (color)=>{
       payload: color
     }
   }
+  export const changeColorThird = (color)=>{
+    return {
+      type: TYPES.COLOR_THIRD,
+      payload: color
+    }
+  }
+  
