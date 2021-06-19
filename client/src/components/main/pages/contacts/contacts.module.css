@@ -1,0 +1,22 @@
+.contacts {
+  color: black;
+}
+
+.info-card {
+  width: 250px;
+  color: black;
+  height: 277px;
+  border: 1px solid #0000006e;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  border-bottom: 1px solid black;
+}
+.email {
+  border-top: 1px solid black;
+  color: red;
+  font-weight: bolder;
+}

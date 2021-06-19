@@ -1,0 +1,68 @@
+.navbar {
+  width: 50px;
+  position: absolute;
+  height: 60vh;
+  padding: 0 0px;
+  transition: all 1s;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 3px;
+}
+button {
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+
+.burger {
+  width: 25px;
+  height: 25px;
+  fill: white;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.navbar-active {
+  width: 160px;
+  background: #000;
+  position: absolute;
+  margin-right: 20px;
+  height: 95vh;
+  padding: 0 15px;
+  left: 0;
+  top: 39px;
+  transition: all 1s;
+  background-color: rgb(46, 46, 46);
+}
+ul {
+  padding: 0;
+  position: relative;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: all 1s;
+}
+
+ul li a:hover,
+ul li a:active {
+  background: rgba(251, 0, 0, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backface-visibility: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+}
+
+.icons {
+  margin-right: 16px;
+}

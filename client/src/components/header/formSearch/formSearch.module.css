@@ -1,0 +1,36 @@
+.form-search {
+  position: absolute;
+  top: 7px;
+  margin-left: 40%;
+  width: 40%;
+  border-radius: 14px;
+  border: none;
+  height: 23px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backface-visibility: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+
+input {
+  outline: none;
+  width: 90%;
+  margin-left: 27px;
+  border: none;
+  border-radius: 14px;
+  background: none;
+  color: white;
+}
+.input:active {
+  border: none;
+}
+
+.search-btn {
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+.search {
+  width: 20px;
+}
