@@ -84,6 +84,9 @@ function DisplayColor() {
     console.log(res);
   }
 
+
+
+  
   return (
     <div className={cx("container-diplay-color")}>
       <Button

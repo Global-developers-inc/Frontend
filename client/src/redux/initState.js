@@ -1,5 +1,6 @@
 const initState = {
-  color: { mainColor: "rgb(46, 46, 46)", secondColor: "#85a9d7" },
+  color:[{ color:"rgb(46, 46, 46)", name:'BlackMATE', action:'theme'}, 
+  { color:"rgb(46, 46, 46)", name:'BlackMATE', action:'theme'}],
 };
 
 export default initState;
