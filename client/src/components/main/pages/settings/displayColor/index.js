@@ -19,6 +19,13 @@ import {
 const cx = classNames.bind(style);
 
 function DisplayColor() {
+  const storeColor = useSelector((store) => store.actualColor.color);
+  const actualSendColor = useSelector((store) => store.actualColor);
+  const [loadColor, setLoadColor] = React.useState(null);
+
+  const [color, setColor] = React.useState(storeColor);
+  console.log(color);
+ 
   const history = useHistory();
   const handleClick = () => {
     history.goBack();
@@ -29,41 +36,37 @@ function DisplayColor() {
   const handleChangeColor = (e) => {
     if (e.target.name === "BlackMATE") {
       dispatch(
-        changeColorMain({ color: "rgb(46, 46, 46)", nameColor: "BlackMATE" })
+        changeColorMain({ color: "rgb(46, 46, 46)", name: "BlackMATE", action:'theme' })
       );
     }
     if (e.target.name === "TraditionalOk") {
       dispatch(
-        changeColorSecond({ color: "#85a9d7", nameColor: "TraditionalOk" })
+        changeColorSecond({ color: "#85a9d7", name: "TraditionalOk" , action:'theme' })
       );
     }
     if (e.target.name === "Green-Submarine") {
       dispatch(
-        changeColorThird({ color: "#404f49", nameColor: "Green-Submarine" })
+        changeColorThird({ color: "#404f49", name: "Green-Submarine" ,  action:'theme'})
       );
     }
     if (e.target.name === "Blue-Submarine") {
       dispatch(
-        changeColorThird({ color: "rgb(4,40,61)", nameColor: "Blue-Submarine" })
+        changeColorThird({ color: "rgb(4,40,61)", name: "Blue-Submarine",  action:'theme' })
       );
     }
     setLoadColor(null);
   };
-  const [loadColor, setLoadColor] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/repo")
+    fetch("http://localhost:5000/theme")
       .then((response) => response.json())
       .then((json) => setLoadColor(json))
       .catch((error) => console.log("Authorization failed : " + error.message));
   }, []);
 
-  const storeColor = useSelector((store) => store.actualColor.color);
-  const actualSendColor = useSelector((store) => store.actualColor);
-
-  const [color, setColor] = React.useState(storeColor);
-  console.log(color);
+  
   React.useEffect(() => {
+    setLoadColor(storeColor)
     setColor(storeColor);
   }, [storeColor]);
 
