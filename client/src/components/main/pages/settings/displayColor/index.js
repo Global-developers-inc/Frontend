@@ -24,8 +24,8 @@ function DisplayColor() {
   const [loadColor, setLoadColor] = React.useState(null);
 
   const [color, setColor] = React.useState(storeColor);
-  console.log(color);
- 
+  console.log(actualSendColor);
+
   const history = useHistory();
   const handleClick = () => {
     history.goBack();
@@ -36,22 +36,38 @@ function DisplayColor() {
   const handleChangeColor = (e) => {
     if (e.target.name === "BlackMATE") {
       dispatch(
-        changeColorMain({ color: "rgb(46, 46, 46)", name: "BlackMATE", action:'theme' })
+        changeColorMain({
+          color: "rgb(46, 46, 46)",
+          name: "BlackMATE",
+          action: "theme",
+        })
       );
     }
     if (e.target.name === "TraditionalOk") {
       dispatch(
-        changeColorSecond({ color: "#85a9d7", name: "TraditionalOk" , action:'theme' })
+        changeColorSecond({
+          color: "#85a9d7",
+          name: "TraditionalOk",
+          action: "theme",
+        })
       );
     }
     if (e.target.name === "Green-Submarine") {
       dispatch(
-        changeColorThird({ color: "#404f49", name: "Green-Submarine" ,  action:'theme'})
+        changeColorThird({
+          color: "#404f49",
+          name: "Green-Submarine",
+          action: "theme",
+        })
       );
     }
     if (e.target.name === "Blue-Submarine") {
       dispatch(
-        changeColorThird({ color: "rgb(4,40,61)", name: "Blue-Submarine",  action:'theme' })
+        changeColorThird({
+          color: "rgb(4,40,61)",
+          name: "Blue-Submarine",
+          action: "theme",
+        })
       );
     }
     setLoadColor(null);
@@ -64,9 +80,8 @@ function DisplayColor() {
       .catch((error) => console.log("Authorization failed : " + error.message));
   }, []);
 
-  
   React.useEffect(() => {
-    setLoadColor(storeColor)
+    setLoadColor(storeColor);
     setColor(storeColor);
   }, [storeColor]);
 
@@ -78,15 +93,12 @@ function DisplayColor() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        actualSendColor,
+        ...actualSendColor,
       }),
     });
     console.log(res);
   }
 
-
-
-  
   return (
     <div className={cx("container-diplay-color")}>
       <Button
