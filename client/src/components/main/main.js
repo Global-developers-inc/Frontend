@@ -4,7 +4,7 @@ import Analitics from "./pages/analitics";
 import Exit from "./pages/exit/exit";
 import Faq from "./pages/faq";
 import Home from "./pages/home/home";
-import Profile from "./pages/profile";
+import Profile from "./pages/profile/index";
 import Settings from "./pages/settings/settings";
 import classNames from "classnames/bind";
 
