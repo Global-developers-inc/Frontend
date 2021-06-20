@@ -24,7 +24,6 @@ function DisplayColor() {
   const [loadColor, setLoadColor] = React.useState(null);
 
   const [color, setColor] = React.useState(storeColor);
-  console.log(actualSendColor);
 
   const history = useHistory();
   const handleClick = () => {

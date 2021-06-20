@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames/bind";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
+
 import style from "./profile.module.css";
 
 const styles = {

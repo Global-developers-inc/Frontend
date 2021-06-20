@@ -11,6 +11,7 @@ import classNames from "classnames/bind";
 import style from "./main.module.css";
 import Contacts from "./pages/contacts";
 import DisplayColor from "./pages/settings/displayColor";
+import Repo from "./pages/repo";
 const cx = classNames.bind(style);
 function Main() {
   const [visibleSettingsList, setVisibleSettinsList] = React.useState(true);
@@ -28,6 +29,9 @@ function Main() {
           </Route>
           <Route path="/diplay_color">
             <DisplayColor setVisibleSettinsList={setVisibleSettinsList} />
+          </Route>
+          <Route path="/repo">
+            <Repo setVisibleSettinsList={setVisibleSettinsList} />
           </Route>
           <Route path="/profile" component={Profile} />
           <Route path="/analitics" component={Analitics} />

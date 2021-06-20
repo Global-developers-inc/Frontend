@@ -1,0 +1,8 @@
+.repo {
+  color: black;
+  display: flex;
+  border-bottom: 1px solid black;
+  width: 300px;
+align-items: center;
+    justify-content: center;
+}
