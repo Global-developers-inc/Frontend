@@ -118,7 +118,7 @@ function DisplayColor() {
         style={{ backgroundColor: loadColor ? loadColor : color }}
         onClick={handleSubmit}
       >
-        Applay
+        Apply
       </button>
     </div>
   );

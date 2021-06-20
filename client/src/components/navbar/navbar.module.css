@@ -1,11 +1,9 @@
 .navbar {
   width: 50px;
   position: absolute;
-  height: 60vh;
+  height: 100%;
   padding: 0 0px;
   transition: all 1s;
-  margin-top: 10px;
-  margin-left: 3px;
 }
 button {
   outline: none;
