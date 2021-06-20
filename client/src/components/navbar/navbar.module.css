@@ -4,7 +4,6 @@
   height: 60vh;
   padding: 0 0px;
   transition: all 1s;
-  border-radius: 20px;
   margin-top: 10px;
   margin-left: 3px;
 }
@@ -56,11 +55,7 @@ ul li a {
 
 ul li a:hover,
 ul li a:active {
-  background: rgba(251, 0, 0, 0.35);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backface-visibility: blur(6.5px);
-  -webkit-backdrop-filter: blur(6.5px);
-  border-radius: 10px;
+  background: #e9eceff0;
 }
 
 .icons {
